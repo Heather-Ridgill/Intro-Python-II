@@ -1,6 +1,6 @@
 from room import Room
 from player import Player
-from directions import directions
+from directions import directions, key_direction
 import os
 
 # Declare all the rooms
@@ -59,7 +59,8 @@ while selection != "q":
     #.room comes from player.py file
     print(player.room)
     print("Where would you like to go?")
-    print()
+  
+    selection = input("Enter Direction: ")
 
 if selection == "n" or selection == "s" or selection == "e" or selection == "w":
     player.move(selection)

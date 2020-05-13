@@ -59,6 +59,7 @@ while selection != "q":
     #.room comes from player.py file
     print(player.room)
     print("Where would you like to go?")
+    key_direction()
   
     selection = input("Enter Direction: ")
 
@@ -71,6 +72,6 @@ elif selection == "q":
 else:
     print("You must enter a valid command")
     input("Please press any key to continue...")
-    os.system("clear")
+    os.system('clear')
 
-os.system("clear")
+os.system('clear')

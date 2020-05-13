@@ -1,4 +1,4 @@
-commands = {
+directions = {
     "n": "Go North",
     "e": "Go East",
     "s": "Go South",
@@ -6,6 +6,6 @@ commands = {
     "q": "Quit"
 }
 
-def key_commands():
-    for key, value in commands.items():
+def key_direction():
+    for key, value in directions.items():
         print(f'{key}: {value}')

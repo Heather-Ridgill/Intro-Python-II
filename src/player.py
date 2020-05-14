@@ -1,6 +1,6 @@
 # Write a class to hold player information, e.g. what room they are in
 # currently.
-import os
+
 
 """
 player.py
@@ -25,25 +25,28 @@ Optional extra attributes"
 """
 class Player:
 
-    def __init__(self, name, room):
+    def __init__(self, name, current_room):
         self.name = name
-        self.room = room
+        self.current_room = current_room
+
 
     def __str__(self):
         return(f'My name is {self.name}')
 
 
     def move(self, direction):
+        print(direction, "input")
         next_room =f'{direction}_to'
 
         try:
-            self.room = getmoving(self.room, next_room)
+            self.current_room = getattr(self.current_room, next_room)
+            
         except:
             print("Sorry you cant move that way, try another way!")
-            input("Please press any key to continue...")
+            # input("Please press any key to continue...")
 
 
-player = Player ("Jessie Jefferson", "treasure")
+player = Player ("Dr. Abigail Chase", "outside")
 
 print(player)
 

@@ -1,12 +1,12 @@
 from room import Room
 from player import Player
-from directions import directions, key_direction
-import os
+from directions import directions, main_direction
+
 
 # Declare all the rooms
 
 room = {
-    'outside':  Room("Outside Cave Entrance",
+    'outside':  Room ("Outside Cave Entrance", 
                      "North of you, the cave mount beckons"),
 
     'foyer':    Room("Foyer", """Dim light filters in from the south. Dusty
@@ -41,7 +41,7 @@ room['treasure'].s_to = room['narrow']
 #
 
 # Make a new player object that is currently in the 'outside' room.
-player = Player("Player", room["outside"])
+player = Player("Player", room['outside'])
 
 # Write a loop that:
 #
@@ -56,22 +56,22 @@ player = Player("Player", room["outside"])
 
 selection = 0
 while selection != "q":
-    #.room comes from player.py file
-    print(player.room)
-    print("Where would you like to go?")
-    key_direction()
+    #.room comes from player.py file - default room "treasure"
+    print(player.current_room)
+    print("Where would you like to go now?")
+    main_direction()
   
-    selection = input("Enter Direction: ")
+    selection = input("Enter Direction: ").strip()
+    
+    if selection == "n" or selection == "s" or selection == "e" or selection == "w":
+        print(selection, "input")
+        player.move(selection)
+    elif selection == "q":
+        print("Hope to see you again soon!")
+        input("Please press any key to continue...")
+   
+    else:
+        print("You must enter a valid command")
+        input("Please press any key to continue...")
+    
 
-if selection == "n" or selection == "s" or selection == "e" or selection == "w":
-    player.move(selection)
-elif selection == "q":
-    print("Hope to see you again soon!")
-    input("Please press any key to continue...")
-    os.system("clear")
-else:
-    print("You must enter a valid command")
-    input("Please press any key to continue...")
-    os.system('clear')
-
-os.system('clear')
